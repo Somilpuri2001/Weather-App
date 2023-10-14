@@ -1,3 +1,13 @@
+function cityCheck(city){
+    for (let i=0;i<city.length;i++){
+        const char = city.charAt(i);
+        if(!( char>='A' && char<='Z' || char>='a' && char<='z')){
+            return false;
+        }
+    }
+    return true;
+}
+
 const express = require('express');
 const https = require('https');
 const bodyParser = require('body-parser');
@@ -20,8 +30,13 @@ app.get("/", (req, res) => {
 app.post("/", (req, res) => {
 
     const city = req.body.city;
-
     let errormsg = null;
+    if(!cityCheck(city)){
+        errormsg="Please enter only alphabets"
+        res.render('index.ejs',{errormsg,temp:null,description:null,city:null});
+        return;
+    }
+    
 
 
 
