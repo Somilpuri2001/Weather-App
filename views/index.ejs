@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Weather App</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="heading">Weather App</h1>
+        <form method="post" action="/">
+            <input type="text" name="city" id="cityName" class="cityInput" placeholder="Enter City" autocomplete="off">
+            <br>
+            <button type="submit" class="submitButton">Enter</button>
+        </form>
+        <%if(errormsg) {%>
+            <p class="errorMsg">
+                <%=errormsg%>
+            </p>
+            <%} else{%>
+                <%if(city){%>
+                    <div class="card">
+
+                        <h3>Weather for <%=city%>
+                        </h3>
+
+
+                        <img src="<%=imageUrl%>">
+
+                        <p>
+                        <p><b>Temperature:</b><span class="temperature">
+                                <%=temp%>&deg;C
+                            </span></p>
+                        </p>
+                        <p>
+                        <p><b>Description:</b><span class="description">
+                                <%=description%>
+                            </span></p>
+                        </p>
+
+                    </div>
+                
+                    <%}%>
+                        <%}%>
+
+
+    </div>
+
+</body>
+
+</html>
