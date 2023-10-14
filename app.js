@@ -1,7 +1,7 @@
 function cityCheck(city){
     for (let i=0;i<city.length;i++){
         const char = city.charAt(i);
-        if(!( char>='A' && char<='Z' || char>='a' && char<='z')){
+        if(!( char>='A' && char<='Z' || char>='a' && char<='z' || char==' ')){
             return false;
         }
     }
